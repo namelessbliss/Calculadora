@@ -1,12 +1,13 @@
 package adolfopardo.calculadora;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -24,26 +25,33 @@ public class MainActivity extends AppCompatActivity {
 
 
     private boolean onIsEditInProgress=false;
+    private int minLenght;
+    private int textSize;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        minLenght = getResources().getInteger(R.integer.main_min_length);
+        textSize = getResources().getInteger(R.integer.main_input_textSize);
+
         configEditText();
 
     }
 
-    //OCULTAR EL TECLADO ANDROID CUANDO SE SELECCIONA EL EDITTEXT
+    //METEDO OCULTAR EL TECLADO ANDROID CUANDO SE SELECCIONA EL EDITTEXT
     private void configEditText() {
-        EditTextInput.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                InputMethodManager input = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                input.hideSoftInputFromWindow(view.getWindowToken(), 0);
-            }
-        });
+//        EditTextInput.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                InputMethodManager input = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//                input.hideSoftInputFromWindow(view.getWindowToken(), 0);
+//            }
+//        });
 
+        //ELIMINAR CARACTERES CON EL DRAWABLE
         EditTextInput.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -59,6 +67,37 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 return false;
+            }
+        });
+        //METODO PARA CAMBIAR EL OPERADOR ANTERIOR
+        EditTextInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (!onIsEditInProgress &&
+                        Metodos.canReplaceOperator(charSequence)){
+                    onIsEditInProgress=true;
+                    EditTextInput.getText().delete(EditTextInput.getText().length()-2,
+                            EditTextInput.getText().length()-1);
+                }
+                    //AJUSTAR TAMAÑO DE TEXTO SEGUN
+                    if (charSequence.length() > minLenght){
+                        EditTextInput.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize-
+                                (((charSequence.length() - minLenght) * 2)+ (charSequence.length()-
+                        minLenght)));
+                    }
+                    else
+                        EditTextInput.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                onIsEditInProgress = false;
             }
         });
     }
