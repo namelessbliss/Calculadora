@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/calc.horizontal.margin"
+    android:paddingRight="@dimen/calc.horizontal.margin"
+    android:paddingTop="@dimen/calc.vertical.margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="adolfopardo.calculadora.MainActivity">
+
+   <android.support.design.widget.TextInputLayout
+       android:id="@+id/TextInputLayout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <EditText
+           android:id="@+id/EditTextInput"
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/calc.inout.height"
+           android:hint="@string/hint.input"
+           android:gravity="end|center_vertical"
+           android:inputType="none"
+           android:textIsSelectable="true"
+           android:maxLength="16"
+           android:drawableEnd="@drawable/ic_backspace_black_36dp"
+           android:drawablePadding="16dp"/>
+   </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/LLMainLeft"
+        android:layout_width="@dimen/calc.btn.size"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/TextInputLayout">
+
+        <Button
+        android:id="@+id/btnSeven"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/calc.btn.size"
+        android:text="@string/calc.btn.seven"
+        android:theme="@style/ButtonMaterialDesign"/>
+        <Button
+            android:id="@+id/btnFour"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calc.btn.size"
+            android:text="@string/calc.btn.four"
+            android:theme="@style/ButtonMaterialDesign"/>
+        <Button
+            android:id="@+id/btnOne"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calc.btn.size"
+            android:text="@string/calc.btn.one"
+            android:theme="@style/ButtonMaterialDesign"/>
+        <Button
+            android:id="@+id/btnPoint"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calc.btn.size"
+            android:text="@string/calc.btn.point"
+            android:theme="@style/ButtonMaterialDesignDark"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LLMainRight"
+        android:layout_width="@dimen/calc.btn.size"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/TextInputLayout"
+        android:layout_toEndOf="@+id/LLMainLeft">
+
+        <Button
+            android:id="@+id/btnEight"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calc.btn.size"
+            android:text="@string/calc.btn.eight"
+            android:theme="@style/ButtonMaterialDesign"/>
+        <Button
+            android:id="@+id/btnfive"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calc.btn.size"
+            android:text="@string/calc.btn.five"
+            android:theme="@style/ButtonMaterialDesign"/>
+        <Button
+            android:id="@+id/btnTwo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calc.btn.size"
+            android:text="@string/calc.btn.two"
+            android:theme="@style/ButtonMaterialDesign"/>
+        <Button
+            android:id="@+id/btnZero"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calc.btn.size"
+            android:text="@string/calc.btn.zero"
+            android:theme="@style/ButtonMaterialDesign"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLOperadores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TextInputLayout"
+        android:layout_toEndOf="@id/LLMainRight">
+        <Button
+            android:id="@+id/btnNine"
+            android:layout_width="@dimen/calc.btn.size"
+            android:layout_height="@dimen/calc.btn.size"
+            android:text="@string/calc.btn.nine"
+            android:theme="@style/ButtonMaterialDesign"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calc.btn.size"
+            android:text="@string/calc.btn.clear"
+            android:theme="@style/ButtonMaterialDesignDanger"
+            android:layout_toEndOf="@+id/btnNine"/>
+
+
+        <LinearLayout
+        android:id="@+id/LLMidle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/btnNine">
+
+        <Button
+            android:id="@+id/btnSix"
+            android:layout_width="@dimen/calc.btn.size"
+            android:layout_height="@dimen/calc.btn.size"
+            android:text="@string/calc.btn.six"
+            android:theme="@style/ButtonMaterialDesign"/>
+
+        <Button
+            android:id="@+id/btnDiv"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/calc.btn.size"
+            android:layout_weight="50"
+            android:text="@string/calc.btn.betwen"
+            android:theme="@style/ButtonMaterialDesignDark"
+            />
+        <Button
+            android:id="@+id/btnMultiplication"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/calc.btn.size"
+            android:layout_weight="50"
+            android:text="@string/calc.btn.multiplication"
+            android:theme="@style/ButtonMaterialDesignDark"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/LLMidle">
+
+            <Button
+                android:id="@+id/btnThree"
+                android:layout_width="@dimen/calc.btn.size"
+                android:layout_height="@dimen/calc.btn.size"
+                android:text="@string/calc.btn.three"
+                android:theme="@style/ButtonMaterialDesign"/>
+            <Button
+                android:id="@+id/btnSub"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/calc.btn.size"
+                android:layout_weight="50"
+                android:text="@string/calc.btn.sub"
+                android:theme="@style/ButtonMaterialDesignDark"
+                />
+            <Button
+                android:id="@+id/btnSum"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/calc.btn.size"
+                android:layout_weight="50"
+                android:text="@string/calc.btn.sum"
+                android:theme="@style/ButtonMaterialDesignDark"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <Button
+        android:id="@+id/btnResult"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/calc.btn.size"
+        android:theme="@style/ButtonMaterialDesignDarker"
+        android:layout_below="@+id/RLOperadores"
+        android:layout_toEndOf="@+id/LLMainRight"
+        android:text="@string/btn.result"/>
+
+
+</RelativeLayout>

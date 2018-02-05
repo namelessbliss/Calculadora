@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Calculadora</string>
+    <string name="hint.input">Introduce tu transacción</string>
+    <string name="calc.btn.seven">7</string>
+    <string name="calc.btn.four">4</string>
+    <string name="calc.btn.one">1</string>
+    <string name="calc.btn.point">.</string>
+    <string name="calc.btn.eight">8</string>
+    <string name="calc.btn.five">5</string>
+    <string name="calc.btn.two">2</string>
+    <string name="calc.btn.zero">0</string>
+    <string name="calc.btn.nine">9</string>
+    <string name="calc.btn.clear">C</string>
+    <string name="calc.btn.six">6</string>
+    <string name="calc.btn.betwen">÷</string>
+    <string name="calc.btn.multiplication">x</string>
+    <string name="calc.btn.three">3</string>
+    <string name="calc.btn.sub">-</string>
+    <string name="calc.btn.sum">+</string>
+    <string name="btn.result">=</string>
+    <string name="message_exp_incorrect">La exprecion es incorrecta</string>
+</resources>
