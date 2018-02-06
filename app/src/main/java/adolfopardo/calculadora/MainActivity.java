@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     EditTextInput.getText().delete(EditTextInput.getText().length()-2,
                             EditTextInput.getText().length()-1);
                 }
-                    //AJUSTAR TAMAÑO DE TEXTO SEGUN
+                    //AJUSTAR TAMAÑO DE TEXTO SEGUN pantalla
                     if (charSequence.length() > minLenght){
                         EditTextInput.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSize-
                                 (((charSequence.length() - minLenght) * 2)+ (charSequence.length()-
