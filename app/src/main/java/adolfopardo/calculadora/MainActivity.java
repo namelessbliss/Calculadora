@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private int minLenght;
     private int textSize;
 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
